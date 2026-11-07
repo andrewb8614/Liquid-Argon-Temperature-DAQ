@@ -5,43 +5,57 @@
 ---------------------------------------------------------------------------------------------------------------------
 ## 1. Hardware & Test Setup
 
- Two RTDs were mounted to a PCB designed to mount to a secure permanent housing rod. By mounting two RTDs at the same depth, we can catch imprecise measurements when they occur by comparing the temperature of two parallel readings which should be approximately the same. 
+ Two RTDs were mounted to a PCB designed to mount to a secure permanent housing rod (Figure 1.). By mounting two RTDs at the same depth, we can catch imprecise measurements when they occur by comparing the temperature of two parallel readings which should be approximately the same. 
  
 >FIG 1: Up-Close Shot of RTD’s Soldered to the Depth Mount Boards
 <img width="558" height="709" alt="image" src="https://github.com/user-attachments/assets/7b36319f-bee9-4d88-9bc1-321002127bca" />
+<br>
+<br>
+<br>
 
-<br>
-<br>
-The Playing with Fusion FDQ-30002 RTD Data Acquisition board was chosen as the DAQ unit because of its Arduino compatible core, ability to add additional RTD channels through the use of shields, and native fault-checking, live data monitoring, and data logging functions.
+The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was chosen as the DAQ unit because of its Arduino compatible core, ability to add additional RTD channels through the use of shields, and native fault-checking, live data monitoring, and data logging functions.
   
 >FIG 2: Playing with Fusion FDQ-30002. Four Channels Are Supported Without the Use of Shields, as Pictured. For Testing, the Channel Wires are Connected to the Terminals Via Spring Clamps. For a More Permanent Build, the Terminals Can Be Connected to Via SM Soldering. Each Channel Was Wired in a Two Wire Configuration.
 <img width="4080" height="3060" alt="IMG_20261016_162845174" src="https://github.com/user-attachments/assets/aeec50e9-0373-4647-92da-e8da611731c4" />
+<br>
+<br>
+<br>
 
 
-
- A single PCB mount containing 2 RTDs was initially tested using a 1-ft strip of scrap cable. The blue cable, pictured in Figure 3 below, is an 8 conductor cable of solid strand, meaning we can route 4 RTDs or two PCBs for each cable we use. Because it had already been vetted for cryogenic liquid temperatures, and because there was a great abundance of it on-site, it was the natural choice for wiring.
+ A single PCB mount containing 2 RTDs was initially tested using a 1-ft strip of scrap cable (Figure 3.). The blue cable is an 8 conductor cable of solid strand, meaning we can route 4 RTDs or two PCBs for each cable we use. Because it had already been vetted for cryogenic liquid temperatures, and because there was a great abundance of it on-site, it was the natural choice for wiring.
 >FIG 3: Original Test Setup using 1-ft of Scrap cable
 <img width="975" height="259" alt="image" src="https://github.com/user-attachments/assets/40078acb-0269-4bf0-ac29-372c977bf785" />
+<br>
+<br>
+<br>
 
- After successful tests of wiring with the blue cable at room temperature, the 1-ft cable was replaced by a 6-ft cable for remote collection.
+ After successful tests of wiring with the blue cable at room temperature, the 1-ft cable was replaced by a 6-ft cable for remote collection (Figure 4.).
 >FIG 4: Sensor and DAQ Rig Expanded to 6-ft Cable Length  
 <img width="975" height="658" alt="image" src="https://github.com/user-attachments/assets/b3a52648-7b16-4a07-9d5b-583df1ffe2fc" />
-
+<br>
+<br>
+<br>
  
 >FIG 5: RTD Array Attached to Mount. Stainless Steel Machine Screws and a Scrap PCB Originally Designed for Cryogenic Temperatures were Used for Initial Testing. Later Iterations Planned to Involved a Specialized Mount of Longer Length (~4ft)
 <img width="928" height="391" alt="image" src="https://github.com/user-attachments/assets/9c139318-f78a-4d1b-a95c-5484241eb615" />
-
+<br>
+<br>
+<br>
 
 >FIG 6: Up-Close View of Figure 
 <img width="889" height="319" alt="image" src="https://github.com/user-attachments/assets/49e79c7c-e5e9-4dc9-994b-c9d46744012f" />
-
+<br>
+<br>
+<br>
 
 
 **On-Site Reconfiguration:** During testing, fluid availability limited the liquid argon depth to ~6 inches. The sensor harness was then inverted on-site prior to inserting the sensor array within the liquid for data collection (C.f. Figure 6 & Figure 7).
 
 >FIG 7: On-Site Reconfiguration. Kapton Tape Was Used to Secure Cable to Array Mount and Prevent Stress on the PCB and Solder Joints
 <img width="975" height="212" alt="image" src="https://github.com/user-attachments/assets/d83ff3b5-50d4-4987-8295-515ce35d04dd" />
-
+<br>
+<br>
+<br>
 
  
 
@@ -50,7 +64,9 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board was chosen as the D
 
 >FIG 8: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extreme Temperature Exposure
 <img width="571" height="981" alt="image" src="https://github.com/user-attachments/assets/a2815d9a-b08e-4c80-99e4-a69ef96f6140" />
-
+<br>
+<br>
+<br>
  
 
 ### System Demo & Telemetry Capture
