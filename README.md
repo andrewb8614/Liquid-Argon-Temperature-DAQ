@@ -11,6 +11,7 @@
 <img width="558" height="709" alt="image" src="https://github.com/user-attachments/assets/7b36319f-bee9-4d88-9bc1-321002127bca" />
 
 <br>
+<br>
 The Playing with Fusion FDQ-30002 RTD Data Acquisition board was chosen as the DAQ unit because of its Arduino compatible core, ability to add additional RTD channels through the use of shields, and native fault-checking, live data monitoring, and data logging functions.
   
 >FIG 2: Playing with Fusion FDQ-30002. Four Channels Are Supported Without the Use of Shields, as Pictured. For Testing, the Channel Wires are Connected to the Terminals Via Spring Clamps. For a More Permanent Build, the Terminals Can Be Connected to Via SM Soldering. Each Channel Was Wired in a Two Wire Configuration.
