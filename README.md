@@ -42,4 +42,4 @@ FIG 7: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extr
 
  
 
-[📥 View Liquid Argon DAQ Test Demonstration (MP4)](./DAQ_Test_Demonstration.mp4)
+[📥 View Liquid Argon DAQ Test Demonstration (MP4)](./DAQ_Test_Demonstration_Video.mp4)
