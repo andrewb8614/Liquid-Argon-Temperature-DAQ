@@ -57,8 +57,12 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was cho
 <br>
 <br>
 
- 
+ ## 3. Data Logging & Results
+I started by placing the lowest sensor an inch above the liquid. I observed the output monitor and waited for the temperature at each depth to stop changing. The unit was then submerged at different depths relative to the start position. Each time the unit was moved, the time of movement was noted and the depth it was moved by was measured and recorded. This procedure was done repeatedly at various depths. The purpose of this is to not only test the success of the DAQ unit prototype, but to also log data about how quickly the RTDs respond to changes in depth. 
 
+<br>
+<br>
+<br>
 
  As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this it was believed we could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth. For instance, tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius. This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
 
