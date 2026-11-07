@@ -1,8 +1,7 @@
 # Liquid-Argon-Temperature-DAQ
 
 ## Overview
-Built and tested a submersible temperature data-acquisition (DAQ) rig to capture and log real-time temperature data at various depths within a liquid argon chamber (-186°C). 
-
+Built and tested a submersible temperature data-acquisition (DAQ) rig to capture and log real-time temperature data at various depths within a liquid argon chamber (-186°C). Collected data (Resistance, Temperature, and Fault Status) for each RTD is read out every half second to monitor. The data for each RTD is averaged every 2 seconds and written to a CSV file for documentation purposes. The data for each RTD was additionally averaged every 5 seconds with the intention of plotting. The python plot was not sufficiently debugged by the time of the initial test, so the 5-second average was instead printed to the console for testing purposes.
 ---------------------------------------------------------------------------------------------------------------------
 ## 1. Hardware & Test Setup
 
