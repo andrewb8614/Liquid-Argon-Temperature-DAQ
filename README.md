@@ -7,7 +7,8 @@ Built and tested a submersible temperature data-acquisition (DAQ) rig to capture
 ## 1. Hardware & Test Setup
 Brief description of your physical rig layout and sensor configuration.
 FIG 1: Up-Close Shot of RTD’s Soldered to the Depth Mount Boards
- 
+ <img width="558" height="709" alt="image" src="https://github.com/user-attachments/assets/7b36319f-bee9-4d88-9bc1-321002127bca" />
+
 
 FIG 2: Original Test Setup using 1-ft of Scrap cable
  
