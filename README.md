@@ -5,7 +5,7 @@
 ---------------------------------------------------------------------------------------------------------------------
 ## 1. Hardware & Test Setup
 
- Two RTDs were mounted to a PCB designed to mount to a secure permanent housing rod (Figure 1.). By mounting two RTDs at the same depth, we can catch imprecise measurements when they occur by comparing the temperature of two parallel readings which should be approximately the same. 
+ Two RTDs were mounted to a PCB designed to mount to a secure permanent housing rod (Figure 1.). By mounting two RTDs at the same depth, I can catch imprecise measurements when they occur by comparing the temperature of two parallel readings which should be approximately the same. 
  
 >FIG 1: Up-Close Shot of RTD’s Soldered to the Depth Mount Boards
 <img width="558" height="709" alt="image" src="https://github.com/user-attachments/assets/7b36319f-bee9-4d88-9bc1-321002127bca" />
@@ -22,7 +22,7 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was cho
 <br>
 
 
- A single PCB mount containing 2 RTDs was initially tested using a 1-ft strip of scrap cable (Figure 3.). The blue cable is an 8 conductor cable of solid strand, meaning we can route 4 RTDs or two PCBs for each cable we use. Because it had already been vetted for cryogenic liquid temperatures, and because there was a great abundance of it on-site, it was the natural choice for wiring.
+ A single PCB mount containing 2 RTDs was initially tested using a 1-ft strip of scrap cable (Figure 3.). The blue cable is an 8 conductor cable of solid strand, meaning I can route 4 RTDs or two PCBs for each cable I use. Because it had already been vetted for cryogenic liquid temperatures, and because there was a great abundance of it on-site, it was the natural choice for wiring.
 >FIG 3: Original Test Setup using 1-ft of Scrap cable
 <img width="975" height="259" alt="image" src="https://github.com/user-attachments/assets/40078acb-0269-4bf0-ac29-372c977bf785" />
 <br>
@@ -64,7 +64,7 @@ I started by placing the lowest sensor an inch above the liquid. I observed the 
 <br>
 <br>
 
- As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this it was believed we could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth. For instance, tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius. This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
+ As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this, it was believed I could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth. For instance, tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius. This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
 
 >FIG 8: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extreme Temperature Exposure
 <img width="571" height="981" alt="image" src="https://github.com/user-attachments/assets/a2815d9a-b08e-4c80-99e4-a69ef96f6140" />
@@ -73,6 +73,5 @@ I started by placing the lowest sensor an inch above the liquid. I observed the 
 <br>
  
 
-### System Demo & Telemetry Capture
 
 [▶ Click Here to Watch the Liquid Argon DAQ Test Demonstration (After Clicking Link, Click "View Raw" to Download MP4)](./DAQ_Test_Demonstration_Video.mp4)
