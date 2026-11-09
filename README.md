@@ -1,7 +1,10 @@
 # Liquid-Argon-Temperature-DAQ
 
 ## Overview
- Built and tested a submersible temperature data-acquisition (DAQ) rig to capture and log real-time temperature data at various depths within a liquid argon chamber (-186°C). Collected data (Resistance, Temperature, and Fault Status) for each RTD is read out every half second to monitor. The data for each RTD is averaged every 2 seconds and written to a CSV file for documentation purposes. The data for each RTD was additionally averaged every 5 seconds with the intention of plotting. 
+ Built and tested a submersible temperature data-acquisition (DAQ) rig to capture and log real-time temperature data at various depths within a liquid argon chamber (-186°C). Collected data (Resistance, Temperature, and Fault Status) for each RTD is read out every half second to monitor. The data for each RTD is averaged every 2 seconds and written to a CSV file for documentation and analysis. The data for each RTD was additionally averaged every 5 seconds with the intention of plotting. 
+
+ ## The Problem
+Liquid argon particle detectors used in neutrino research are highly vulnerable to thermal shock. For the target 4-ft cryochamber, a vertical temperature differential exceeding 20°C across the detector chassis' two ends would cause catastrophic material failure and shatter the unit. To prevent this risk, I was tasked with designing, building, and testing a temperature Data Acquisition (DAQ) rig to map vertical thermal gradients in real time. This system allows researchers to dynamically monitor and adjust chamber fill rates, ensuring sufficient thermal equilibration time to protect high-value experimental equipment.
 ---------------------------------------------------------------------------------------------------------------------
 ## 1. Hardware & Test Setup
 
@@ -57,9 +60,11 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was cho
 <br>
 <br>
 
- ## 3. Data Logging & Results
+ ## 3. Testing & Results
 I started by placing the lowest sensor an inch above the liquid. I observed the output monitor and waited for the temperature at each depth to stop changing. The unit was then submerged at different depths relative to the start position. Each time the unit was moved, the time of movement was noted and the depth it was moved by was measured and recorded. This procedure was done repeatedly at various depths. The purpose of this is to not only test the success of the DAQ unit prototype, but to also log data about how quickly the RTDs respond to changes in depth. 
-
+<br>
+<br>
+[▶ Click Here to Watch the Liquid Argon DAQ Test Demonstration (After Clicking Link, Click "View Raw" to Download MP4)](./DAQ_Test_Demonstration_Video.mp4)
 <br>
 <br>
 <br>
@@ -77,20 +82,28 @@ The python plot was not sufficiently debugged by the time of the initial test, s
 <img width="3000" height="1800" alt="temperature_plot" src="https://github.com/user-attachments/assets/d6667f38-c2e4-49e1-830a-8960e582a503" />
 Looking at the plot of the prototype test (Figure 9.), we can see a few important bits of behavior. 
 1.) Plotting starts at room temperature and ends at roughly room temperature.
+>
+>
 2.) Temperature change upon movement of the rig appears exponential
-**3.) Looking at the RTDs at the lower depth (RTD0 & RTD2), we see a flatline at ~-190°C from approximately 1000s-2000s. We can then see higher RTDs (RTD1 & RTD3) plunge to that same temperature flatline without changing the temperature of RTD0 and RTD2. The initial flatline of the lower RTDs was a consequence of submerging the lower RTDs fully into the liquid argon while the higher RTDs remained above the liquid. That second flatline of the higher RTDs was when both the higher and lower RTDs were fully submerged. This indicates that the liquid was at a stable temperature profile of ~-190°C during those times of the experiment. This means our primary objective has been completed, that is, to be able to detect the temperature gradient of the liquid argon at different depths to prevent filling the chamber too quickly, leading to dramatic differentials in temperature, putting temperature gradient sensitive equipment at risk. Proper data collection is of particular importance since in real situations, other equipment will be inside the cryochamber along with the temperature sensor, meaning the chamber won't cool uniformly as it did when testing with no equipment**
+>
+>
+**3.) Looking at the RTDs at the lower depth (RTD0 & RTD2), we see a flatline at ~-190°C from approximately 1000s-2000s. We can then see higher RTDs (RTD1 & RTD3) plunge to that same temperature flatline without changing the temperature of RTD0 and RTD2. The initial flatline of the lower RTDs was a consequence of submerging the lower RTDs fully into the liquid argon while the higher RTDs remained above the liquid. That second flatline of the higher RTDs was when both the higher and lower RTDs were fully submerged. This indicates that the liquid was at a stable temperature profile of ~-190°C during those times of the experiment. This means our primary objective has been completed, that is, to be able to detect the temperature gradient of the liquid argon at different depths to prevent filling the chamber too quickly and putting temperature gradient sensitive equipment at risk. Proper data collection is of particular importance since in real situations, other equipment will be inside the cryochamber along with the temperature sensor, meaning the chamber won't cool uniformly or predictably as it did when testing with no equipment**
 
 <br>
 <br>
 <br>
- As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this, it was believed I could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth. For instance, tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius. This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
+ As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this, it was believed I could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. **As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth. For instance, tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius.** This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
 
 >FIG 8: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extreme Temperature Exposure
 <img width="571" height="981" alt="image" src="https://github.com/user-attachments/assets/a2815d9a-b08e-4c80-99e4-a69ef96f6140" />
 <br>
 <br>
 <br>
- 
+ ## Conclusion and State of Project
+The prototype type test was highly successful. It revealed much about what works with the first prototype and what needs to be changed. With the data I collected, the goals for the next iteration has been mapped out clearly. Namely:
+- Ensuring rigid vertical alignment to prevent misreadings of the temperature at the desired depths
+- Update the readout script so RTDs at equivalent depths are readout next to each other
+- Addition of sensors to more than two depths
+- Permanent mounting to 4-ft housing + soldering of wires to DAQ board
 
 
-[▶ Click Here to Watch the Liquid Argon DAQ Test Demonstration (After Clicking Link, Click "View Raw" to Download MP4)](./DAQ_Test_Demonstration_Video.mp4)
