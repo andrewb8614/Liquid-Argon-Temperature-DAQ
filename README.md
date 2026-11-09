@@ -1,14 +1,31 @@
 # Liquid-Argon-Temperature-DAQ
 
-## Overview
- Built and tested a submersible temperature data-acquisition (DAQ) rig to capture and log real-time temperature data at various depths within a liquid argon chamber (-186°C). Collected data (Resistance, Temperature, and Fault Status) for each RTD is read out every half second to monitor. The data for each RTD is averaged every 2 seconds and written to a CSV file for documentation and analysis. The data for each RTD was additionally averaged every 5 seconds with the intention of plotting. 
+## 1. Overview
 
- ## The Problem
-Liquid argon particle detectors used in neutrino research are highly vulnerable to thermal shock. For the target 4-ft cryochamber, a vertical temperature differential exceeding 20°C across the detector chassis' two ends would cause catastrophic material failure and shatter the unit. To prevent this risk, I was tasked with designing, building, and testing a temperature Data Acquisition (DAQ) rig to map vertical thermal gradients in real time. This system allows researchers to dynamically monitor and adjust chamber fill rates, ensuring sufficient thermal equilibration time to protect high-value experimental equipment.
----------------------------------------------------------------------------------------------------------------------
-## 1. Hardware & Test Setup
+Built and tested a multi-channel RTD temperature monitoring system designed to measure vertical thermal gradients within a liquid argon cryochamber.
 
- Two RTDs were mounted to a PCB designed to mount to a secure permanent housing rod (Figure 1.). By mounting two RTDs at the same depth, I can catch imprecise measurements when they occur by comparing the temperature of two parallel readings which should be approximately the same. 
+**Project Highlights**
+
+- Designed and assembled a RTD sensor array capable of submersion in liquid argon (~-186°C).
+
+- Integrated a Playing With Fusion FDQ-30002 data acquisition board.
+
+- Implemented real-time temperature monitoring and CSV data logging.
+
+- Tested sensor response and temperature gradients in liquid argon.
+
+- Evaluated sensor alignment, measurement consistency, and system limitations through experimental testing.
+
+- **Technologies + Skills: Arduino, C++, Python, DAQ Control Scripting, RTD Sensors, Data Acquisition, CSV Logging, Plotting, Hardware Construction (Soldering, Wiring), Experimental Testing, Data Analysis**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ ## 2. The Problem
+Liquid argon particle detectors used in neutrino research are highly vulnerable to thermal shock. For the target 4-ft cryochamber, **a vertical temperature differential exceeding 20°C across the two ends of the detector chassis could cause catastrophic material failure.**
+
+**To mitigate this risk, temperature gradients within the cryochamber must be monitored during the filling process.** The goal of this project was to design, build, and test a temperature Data Acquisition (DAQ) rig capable of mapping vertical temperature gradients in real time. **By measuring temperatures at multiple depths, researchers can monitor thermal equilibration and dynamically adjust chamber fill rates to prevent potentially damaging temperature differentials from developing across sensitive equipment.**
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 3. Hardware Design and Construction
+
+I soldered two RTDs to a PCB designed to mount to a secure permanent housing rod (Figure 1.). By mounting two RTDs at the same depth, I can catch imprecise measurements when they occur by comparing the temperature of two parallel readings which should be approximately the same. 
  
 >FIG 1: Up-Close Shot of RTD’s Soldered to the Depth Mount Boards
 <img width="558" height="709" alt="image" src="https://github.com/user-attachments/assets/7b36319f-bee9-4d88-9bc1-321002127bca" />
@@ -59,8 +76,19 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was cho
 <br>
 <br>
 <br>
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 4. Scripting
 
- ## 3. Testing & Results
+The Arduino-based DAQ firmware included several safeguards and data-handling features:
+
+- **SD Card Detection:** Checks for SD card availability during initialization and alerts the operator if no storage device is detected, preventing data logging from proceeding without available storage.
+- **RTD Fault Monitoring:** Utilizes the DAQ board's fault-detection capabilities to identify sensor faults.
+- **Periodic Data Logging:** Records averaged RTD measurements to CSV at 2-second intervals.
+- **Temperature Averaging:** Calculates additional 5-second averages for temperature monitoring and plotting.
+- **Multi-Channel Acquisition:** Supports simultaneous monitoring of four RTD channels.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ ## 5. Testing & Results
 I started by placing the lowest sensor an inch above the liquid. I observed the output monitor and waited for the temperature at each depth to stop changing. The unit was then submerged at different depths relative to the start position. Each time the unit was moved, the time of movement was noted and the depth it was moved by was measured and recorded. This procedure was done repeatedly at various depths. The purpose of this is to not only test the success of the DAQ unit prototype, but to also log data about how quickly the RTDs respond to changes in depth. 
 <br>
 <br>
@@ -102,12 +130,22 @@ Looking at the plot of the prototype test (Figure 9.), we can see a few importan
 <br>
 <br>
 <br>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+##Limitations and Lessons Learned
+
+Limitations:
+- **Within the current design, the accuracy of our measurements cannot be measured.** That said, within the constraints of the project objectives, it the precision which matters most, as it is not the absolute temperature of the chamber which we are focusing on but the temperature gradient.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
  ## Conclusion and State of Project
  
-The prototype type test was highly successful. It revealed much about what works with the first prototype and what needs to be changed. With the data I collected, the goals for the next iteration has been mapped out clearly. Namely:
+The prototype type test was highly successful. It revealed much about what works with the first prototype and what needs to be changed. With the data I collected, the goals for the next iteration have been mapped out clearly. Namely:
 - Ensuring rigid vertical alignment to prevent misreadings of the temperature at the desired depths
 - Update the readout script so RTDs at equivalent depths are readout next to each other, lowering Low RTD Threshold flag temp to account for cryogenic temps
 - Addition of sensors to more than two depths
+- Completion of the python live-readout script
 - Permanent mounting to 4-ft housing + soldering of wires to DAQ board
 
 
