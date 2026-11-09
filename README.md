@@ -68,7 +68,9 @@ I started by placing the lowest sensor an inch above the liquid. I observed the 
 <br>
 <br>
 <br>
-The live readout (a sample of which is shown in Figure 8.) worked as expected. What was not considered was that the limit for the low temperature fault flag would of course need to be adjusted for liquid argon temperatures, so during the course of the test the fault checker read 
+The live readout (a sample of which is shown in Figure 8.) worked as expected. What was not considered was that the limit for the low temperature fault flag would of course need to be adjusted for liquid argon temperatures, so during the course of the test the fault checker read "Low RTD Threshold Met". Additionally, the RTDs were wired such that channels 0 and 2 were at equivalent depths, and 1 and 3 were at equivalent depths, making the readout a little difficult to follow as it was not intuitively obvious that these RTDs were at the same depth from the readout alone.
+
+
 FIG 8: Live Readout Snippet
 <img width="487" height="535" alt="image" src="https://github.com/user-attachments/assets/01bb129f-3dcd-423c-a62f-7a0476d190e4" />
 <br>
@@ -102,7 +104,7 @@ Looking at the plot of the prototype test (Figure 9.), we can see a few importan
  ## Conclusion and State of Project
 The prototype type test was highly successful. It revealed much about what works with the first prototype and what needs to be changed. With the data I collected, the goals for the next iteration has been mapped out clearly. Namely:
 - Ensuring rigid vertical alignment to prevent misreadings of the temperature at the desired depths
-- Update the readout script so RTDs at equivalent depths are readout next to each other
+- Update the readout script so RTDs at equivalent depths are readout next to each other, lowering Low RTD Threshold flag temp to account for cryogenic temps
 - Addition of sensors to more than two depths
 - Permanent mounting to 4-ft housing + soldering of wires to DAQ board
 
