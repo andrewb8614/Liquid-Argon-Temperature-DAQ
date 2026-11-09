@@ -66,8 +66,23 @@ I started by placing the lowest sensor an inch above the liquid. I observed the 
 The live readout (a sample of which is shown in Figure 8.) worked as expected. What was not considered was that the limit for the low temperature fault flag would of course need to be adjusted for liquid argon temperatures, so during the course of the test the fault checker read 
 FIG 8: Live Readout Snippet
 <img width="487" height="535" alt="image" src="https://github.com/user-attachments/assets/01bb129f-3dcd-423c-a62f-7a0476d190e4" />
+<br>
+<br>
+<br>
 The python plot was not sufficiently debugged by the time of the initial test, so the 5-second average was instead printed to the console for testing purposes.
+<br>
+<br>
+<br>
+>FIG 9: Plot of First Test of Temperature DAQ in Liquid Argon. 
+<img width="3000" height="1800" alt="temperature_plot" src="https://github.com/user-attachments/assets/d6667f38-c2e4-49e1-830a-8960e582a503" />
+Looking at the plot of the prototype test (Figure 9.), we can see a few important bits of behavior. 
+1.) Plotting starts at room temperature and ends at roughly room temperature.
+2.) Temperature change upon movement of the rig appears exponential
+**3.) Looking at the RTDs at the lower depth (RTD0 & RTD2), we see a flatline at ~-190°C from approximately 1000s-2000s. We can then see higher RTDs (RTD1 & RTD3) plunge to that same temperature flatline without changing the temperature of RTD0 and RTD2. The initial flatline of the lower RTDs was a consequence of submerging the lower RTDs fully into the liquid argon while the higher RTDs remained above the liquid. That second flatline of the higher RTDs was when both the higher and lower RTDs were fully submerged. This indicates that the liquid was at a stable temperature profile of ~-190°C during those times of the experiment. This means our primary objective has been completed, that is, to be able to detect the temperature gradient of the liquid argon at different depths to prevent filling the chamber too quickly, leading to dramatic differentials in temperature, putting temperature gradient sensitive equipment at risk. Proper data collection is of particular importance since in real situations, other equipment will be inside the cryochamber along with the temperature sensor, meaning the chamber won't cool uniformly as it did when testing with no equipment**
 
+<br>
+<br>
+<br>
  As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this, it was believed I could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth. For instance, tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius. This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
 
 >FIG 8: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extreme Temperature Exposure
