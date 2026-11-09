@@ -19,11 +19,21 @@ Built and tested a multi-channel RTD temperature monitoring system designed to m
 - **Technologies + Skills: Arduino, C++, Python, DAQ Control Scripting, RTD Sensors, Data Acquisition, CSV Logging, Plotting, Hardware Construction (Soldering, Wiring), Experimental Testing, Data Analysis**
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  ## 2. The Problem
+ 
 Liquid argon particle detectors used in neutrino research are highly vulnerable to thermal shock. For the target 4-ft cryochamber, **a vertical temperature differential exceeding 20°C across the two ends of the detector chassis could cause catastrophic material failure.**
 
 **To mitigate this risk, temperature gradients within the cryochamber must be monitored during the filling process.** The goal of this project was to design, build, and test a temperature Data Acquisition (DAQ) rig capable of mapping vertical temperature gradients in real time. **By measuring temperatures at multiple depths, researchers can monitor thermal equilibration and dynamically adjust chamber fill rates to prevent potentially damaging temperature differentials from developing across sensitive equipment.**
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 3. Hardware Design and Construction
+## 3. Design Considerations & Limitations
+
+Design Considerations:
+
+
+Limitations:
+- **Within the current design, the accuracy of our measurements cannot be measured.** That said, within the constraints of the project objectives, it the precision which matters most, as it is not the absolute temperature of the chamber which we are focusing on but the temperature gradient.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 4. Hardware Design and Construction
 
 I soldered two RTDs to a PCB designed to mount to a secure permanent housing rod (Figure 1.). By mounting two RTDs at the same depth, I can catch imprecise measurements when they occur by comparing the temperature of two parallel readings which should be approximately the same. 
  
@@ -69,7 +79,9 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was cho
 <br>
 
 
-**On-Site Reconfiguration:** During testing, fluid availability limited the liquid argon depth to ~6 inches. The sensor harness was then inverted on-site prior to inserting the sensor array within the liquid for data collection (C.f. Figure 6 & Figure 7).
+**On-Site Reconfiguration:** A miscommunication lead me to believe I would be testing my unit in the 4-ft cryochamber. On-site, however, I learned we would be using a smaller ~1.5-ft unit which would only be filled with about 6" of liquid argon. As I had designed the physical hardware with the 4-ft chamber in mind, I'd mounted the RTDs to the scrap PCB about ~1-ft away from its tip (see Fig 5.), which prevented the RTDs from reaching the liquid.
+
+Fortunately, since I had used a semi-permanent construction for the prototype, the sensor harness was easily inverted on-site prior to inserting the sensor array within the liquid for data collection (C.f. Figure 6 & Figure 7).
 
 >FIG 7: On-Site Reconfiguration. Kapton Tape Was Used to Secure Cable to Array Mount and Prevent Stress on the PCB and Solder Joints
 <img width="975" height="212" alt="image" src="https://github.com/user-attachments/assets/d83ff3b5-50d4-4987-8295-515ce35d04dd" />
@@ -79,16 +91,26 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was cho
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 4. Scripting
 
-The Arduino-based DAQ firmware included several safeguards and data-handling features:
+**Arduino Script:** The Arduino-based DAQ firmware included several safeguards and data-handling features:
 
 - **SD Card Detection:** Checks for SD card availability during initialization and alerts the operator if no storage device is detected, preventing data logging from proceeding without available storage.
 - **RTD Fault Monitoring:** Utilizes the DAQ board's fault-detection capabilities to identify sensor faults.
 - **Periodic Data Logging:** Records averaged RTD measurements to CSV at 2-second intervals.
 - **Temperature Averaging:** Calculates additional 5-second averages for temperature monitoring and plotting.
 - **Multi-Channel Acquisition:** Supports simultaneous monitoring of four RTD channels.
+
+**Python Script:** **A Python script was written to communicate with the Arduino script and generate a live plot of the data.**
+- Initial testing of the script revealed good results, however, **the Python script not sufficiently debugged by the time of the initial test, so the 5-second average was instead printed to the console for testing purposes, and the 2-second averages were used as the plotting data post-test (See Sec. Testing & Results).**
+
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
  ## 5. Testing & Results
+ 
+Test Objectives:
+- Verify hardware 
 I started by placing the lowest sensor an inch above the liquid. I observed the output monitor and waited for the temperature at each depth to stop changing. The unit was then submerged at different depths relative to the start position. Each time the unit was moved, the time of movement was noted and the depth it was moved by was measured and recorded. This procedure was done repeatedly at various depths. The purpose of this is to not only test the success of the DAQ unit prototype, but to also log data about how quickly the RTDs respond to changes in depth. 
 <br>
 <br>
@@ -104,7 +126,6 @@ The live readout (a sample of which is shown in Figure 8.) worked as expected. W
 <br>
 <br>
 <br>
-The python plot was not sufficiently debugged by the time of the initial test, so the 5-second average was instead printed to the console for testing purposes.
 <br>
 <br>
 <br>
@@ -131,15 +152,25 @@ Looking at the plot of the prototype test (Figure 9.), we can see a few importan
 <br>
 <br>
 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Considerations for Future Iterations
+
+**Problems with Current Prototype:**
+- **Conductor Pair Shielding:** The conductor pair shielding was chosen to be left on the wires over the section where the cable's main jacket was removed. While the cable was specifically chosen to withstand liquid argon temperatures, exposure to extreme temperatures appeared to make the metal shielding slightly brittle (see Figure 10.), and over time it possible bits of this shielding will break off.
+- **Non-Intuitive RTD Naming:** The RTDs were wired such that RTD0 and RTD2 were at equivalent depths and RTD1 and RTD3 were at equivalent depths. The live readout, which listed the RTDs in numerical order, consequently had an awkward sequencing (see Figure 8.).
+
+**Ideas for Future Iterations/Solutions to Problems**
+- **Conductor Pair Shielding:** Specialized insulation may be shrunk over the individual shielded conductor pairs to protect the shielding. Alternatively, the shielding may be cut off entirely at the point where the jacket is stripped, although consequences on potential resulting interference will need to be considered.
+- **RTD Channel Rewiring/Renaming:** Channels should be rewired so RTDs at parallel depths are numerically next to each other (e.g. RTD0 and RTD1 should be at same depth). Alternatively, these channels can be renamed in the script, although for wiring purposes it will be more intuitive if the RTD channels are wired physically next to each other, so rewiring is likely the better choice.
+
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-##Limitations and Lessons Learned
 
-Limitations:
-- **Within the current design, the accuracy of our measurements cannot be measured.** That said, within the constraints of the project objectives, it the precision which matters most, as it is not the absolute temperature of the chamber which we are focusing on but the temperature gradient.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ ## Conclusion & Lessons Learned
 
- ## Conclusion and State of Project
+
  
 The prototype type test was highly successful. It revealed much about what works with the first prototype and what needs to be changed. With the data I collected, the goals for the next iteration have been mapped out clearly. Namely:
 - Ensuring rigid vertical alignment to prevent misreadings of the temperature at the desired depths
@@ -148,4 +179,8 @@ The prototype type test was highly successful. It revealed much about what works
 - Completion of the python live-readout script
 - Permanent mounting to 4-ft housing + soldering of wires to DAQ board
 
-
+**Lessons Learned:**
+- **Documentation:** Documentation is a quintessential skill as an engineer, as it allows for greater analysis of results, leads to more thorough consideration of design and iteration, and serves as the fundamental form of book-keeping to track projects organic projects which evolve through time. **This project marks a great step-up in my own documentation skill, as I routinely took pictures, uploaded rough drafts of my scripts to Github, and wrote down accompying notes for these things. I also wrote down my design ideas, thought processes, project goals, and questions for the physicists I was designing the unit for and notes about what they told me.** **However, there was plenty I still missed. For instance, no pictures exist of the "No SD detected" flag or fault detection demonstrations discussed earlier (see sec. 4 "Scripting").**
+- **Thinking Ahead:**
+-
+-   uploaded rough drafts of my scripts to Github, and wrote accompying  of  although there is still substantial room for growth, as several 
