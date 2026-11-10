@@ -6,7 +6,7 @@
 
 ### **Project Highlights**
 
-- Built an RTD Array to measures thermal gradient of liquid argon chamber
+- Built an RTD Array to measure thermal gradient of liquid argon chamber
   
 - Integrated a Playing With Fusion FDQ-30002 data acquisition board.
 
@@ -91,16 +91,17 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was cho
 <br>
 <br>
 
->FIG 6: Up-Close View of Figure 
+>FIG 6: Up-Close View of Figure 5
 <img width="889" height="319" alt="image" src="https://github.com/user-attachments/assets/49e79c7c-e5e9-4dc9-994b-c9d46744012f" />
 <br>
 <br>
 <br>
 
 
-**On-Site Reconfiguration:** A miscommunication lead me to believe I would be testing my unit in the 4-ft cryochamber. On-site, however, I learned we would be using a smaller ~1.5-ft unit which would only be filled with about 6" of liquid argon. As I had designed the physical hardware with the 4-ft chamber in mind, I'd mounted the RTDs to the scrap PCB about ~1-ft away from its tip (see Fig 5.), which prevented the RTDs from reaching the liquid.
-
-Fortunately, since I had used a semi-permanent construction for the prototype, the sensor harness was easily inverted on-site prior to inserting the sensor array within the liquid for data collection (C.f. Figure 6 & Figure 7).
+**On-Site Reconfiguration:** 
+- A miscommunication lead me to believe I would be testing my unit in the 4-ft cryochamber. On-site, however, I learned we would be using a smaller ~1.5-ft unit which would only be filled with about 6" of liquid argon.
+- As I had designed the physical hardware with the 4-ft chamber in mind, I'd mounted the RTDs to the scrap PCB about ~1-ft away from its tip (see Fig 5.), which prevented the RTDs from reaching the liquid.
+- Fortunately, since I had used a semi-permanent construction for the prototype, the sensor harness was easily inverted on-site prior to inserting the sensor array within the liquid for data collection (C.f. Figure 5 & Figure 7).
 
 >FIG 7: On-Site Reconfiguration. Kapton Tape Was Used to Secure Cable to Array Mount and Prevent Stress on the PCB and Solder Joints
 <img width="975" height="212" alt="image" src="https://github.com/user-attachments/assets/d83ff3b5-50d4-4987-8295-515ce35d04dd" />
@@ -214,20 +215,59 @@ These results demonstrate that the prototype can detect temperature changes at d
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
- ## Conclusion & Lessons Learned
+ ## 8. Summary of Results & Lessons Learned
 
 
+ ###Summary of Results
  
-The prototype type test was highly successful. It revealed much about what works with the first prototype and what needs to be changed. With the data I collected, the goals for the next iteration have been mapped out clearly. Namely:
+**The prototype type test was highly successful. It revealed much about what works with the first prototype and what needs to be changed. With the data I collected, the goals for the next iteration have been mapped out clearly. Namely:**
 - Ensuring rigid vertical alignment to prevent misreadings of the temperature at the desired depths
 - Update the readout script so RTDs at equivalent depths are readout next to each other, lowering Low RTD Threshold flag temp to account for cryogenic temps
 - Addition of sensors to more than two depths
 - Completion of the python live-readout script
 - Permanent mounting to 4-ft housing + soldering of wires to DAQ board
+- Considerations for DAQ board housing
 
-**Lessons Learned:**
-- **Documentation:** Documentation is a quintessential skill as an engineer, as it allows for greater analysis of results, leads to more thorough consideration of design and iteration, and serves as the fundamental form of book-keeping to track projects organic projects which evolve through time. **This project marks a great step-up in my own documentation skill, as I routinely took pictures, uploaded rough drafts of my scripts to Github, and wrote down accompying notes for these things. I also wrote down my design ideas, thought processes, project goals, and questions for the physicists I was designing the unit for and notes about what they told me.** **However, there was plenty I still missed. For instance, no pictures exist of the "No SD detected" flag or fault detection demonstrations discussed earlier (see sec. 4 "Scripting").**
-- **Quantitative Measurement:** Upon reflection, a stronger emphasis on quantitative measurement needs to be deployed on future projects. For instance, when it was observed that varying the angle of the rig by only a few degrees resulted in a deviation of temperature of RTDs mounted to the same depth on the rig on the order of 3-5°C, I should have done more than just note this observation but used a protractor to measure the phenomena explicitly.
-- **Thinking Ahead:** Certain things cannot be reasonably predicted without testing. With hindsight, it is easy to see the mistakes, such as not performing quantitative testing for DAQ rig's response to deviations in angle from perfect vertical alignment, but nothing reveals these mistakes as quickly and blatantly as testing or simulation. **However, with each project, predicting what's most likely going to be a point of failure or be overlooked beforehand becomes even easier.**
--**Communication and Design Constraints:** Communication with the physicists who asked me to build the sensor was of utmost importance. They laid the groundwork for the essential design constraints and considerations. Without frequent communication, a project is at risk of over or under-engineering, going out of budget, or just plain not capable of achieving its fundamental requirements.
+###Lessons Learned:
 
+**Documentation:** 
+Documentation is a quintessential skill as an engineer, as it allows for greater analysis of results, leads to more thorough consideration of design and iteration, and serves as the fundamental form of book-keeping to track projects organic projects which evolve through time. 
+- **This project marks a great step-up in my own documentation skill, as I routinely documented:**
+- Pictures w/accompanying notes
+- Uploaded rough drafts of my scripts to Github w/accompanying notes
+- Design ideas
+- Thought processes
+- Project goals
+- Project constraints
+- Questions for the physicists I was designing the unit for
+- Notes about what they told me
+ **However, there was plenty I still missed. For instance, no pictures exist of the working "No SD detected" flag or fault detection demonstrations discussed earlier (see sec. 4 "Scripting"). An even greater emphasis on documentation for future projects is what I intend to employ.**
+
+**Communication and Design Constraints:** 
+Communication with the physicists who asked me to build the sensor was of utmost importance. Doing so helped me more clearly understand several key details:
+- **Project objectives:** E.g., temperature differential of chamber ends not exceeding 20°C, live plot, live data readout, data logging.
+- **Project constraints:** Budget, physical geometry, precision over accuracy (for this specific project that is, not generally speaking, see sec 2. "Design Considerations & Limitations")
+Without frequent communication, a project is at risk of over or under-engineering, going out of budget, or just plain not capable of achieving its fundamental requirements.
+
+**Quantitative Measurement:** Upon reflection, a stronger emphasis on quantitative measurement needs to be deployed on future projects. 
+For instance:
+- when it was observed that varying the angle of the rig by only a few degrees resulted in a deviation of temperature of RTDs mounted to the same depth on the rig on the order of 3-5°C, I should have done more than just note this observation but used a protractor to measure the phenomena explicitly.
+
+ **Thinking Ahead:**
+ **With each project, the fundamental skill of foresight is developed.** That is:
+ - Predicting what data is going to be of the most significance
+ - Knowing the best methods to collect this data 
+ - Predicting the most likely points of failure
+ - Predicting what areas of design are most likely to be overlooked
+ - Driving home physical constraints ahead of time
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 9. Conclusion & Final Thoughts
+
+This project successfully demonstrated that a high-stakes engineering challenge can be met with an affordable, custom-built hardware and telemetry solution.
+- **High-Stakes Problem Solving:** Designed and built a cryogenic DAQ system to prevent catastrophic 20°C thermal shock in sensitive neutrino detector equipment. 
+- **Cryogenic Reliability:** Demonstrated sub-zero functionality under direct submersion in liquid argon (~-186°C).
+- **Significant Cost Efficiency:** Achieved a projected 42% cost reduction ($875 vs. $1,500 commercial off-the-shelf alternatives) while expanding multi-channel capabilities.
+- **Data-Driven Engineering:** Integrated real-time multi-channel logging (Arduino/Python) to observe live thermal equilibration and depth-dependent gradient changes.
+- **Iterative & Honest Prototyping:** Identified critical design insights—such as depth sensitivity and tilt variation—laying down a clear roadmap for vertical alignment and full 20-channel expansion.
+Overall, the prototype proved that custom telemetry can deliver reliable, high-precision thermal monitoring while remaining budget-friendly for lab research
