@@ -91,7 +91,9 @@ Fortunately, since I had used a semi-permanent construction for the prototype, t
 <br>
 <br>
 <br>
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## 4. Scripting
 
 **Arduino Script:** The Arduino-based DAQ firmware included several safeguards and data-handling features:
@@ -134,20 +136,21 @@ The live readout (a sample of which is shown in Figure 8.) worked as expected. W
 <br>
 >FIG 9: Plot of First Test of Temperature DAQ in Liquid Argon. 
 <img width="3000" height="1800" alt="temperature_plot" src="https://github.com/user-attachments/assets/d6667f38-c2e4-49e1-830a-8960e582a503" />
-Looking at the plot of the prototype test (Figure 9.), we can see a few important bits of behavior. 
-1.) Plotting starts at room temperature and ends at roughly room temperature.
->
->
-2.) Temperature change upon movement of the rig appears exponential
->
->
-**3.) Looking at the RTDs at the lower depth (RTD0 & RTD2), we see a flatline at ~-190°C from approximately 1000s-2000s. We can then see higher RTDs (RTD1 & RTD3) plunge to that same temperature flatline without changing the temperature of RTD0 and RTD2. The initial flatline of the lower RTDs was a consequence of submerging the lower RTDs fully into the liquid argon while the higher RTDs remained above the liquid. That second flatline of the higher RTDs was when both the higher and lower RTDs were fully submerged. This indicates that the liquid was at a stable temperature profile of ~-190°C during those times of the experiment. This means our primary objective has been completed, that is, to be able to detect the temperature gradient of the liquid argon at different depths to prevent filling the chamber too quickly and putting temperature gradient sensitive equipment at risk. Proper data collection is of particular importance since in real situations, other equipment will be inside the cryochamber along with the temperature sensor, meaning the chamber won't cool uniformly or predictably as it did when testing with no equipment**
+Looking at the plot of the prototype test (Figure 9.): 
+- Plotting starts at room temperature and ends at roughly room temperature.
+- Temperature change upon movement of the rig appears exponential
+- The floor temperature of the liquid argon was ~-190°C. 
 
 <br>
 <br>
 <br>
 
- As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this, it was believed I could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. **As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth. For instance, tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius.** This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
+**Drastic Variation in Temperature with Angle:** 
+As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this, it was believed I could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. 
+- **As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth.**
+- For instance, **tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius.**
+
+This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
 
 >FIG 10: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extreme Temperature Exposure
 <img width="571" height="981" alt="image" src="https://github.com/user-attachments/assets/a2815d9a-b08e-4c80-99e4-a69ef96f6140" />
@@ -156,6 +159,7 @@ Looking at the plot of the prototype test (Figure 9.), we can see a few importan
 <br>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## 6. Cost Analysis
 
 **Cost Effective** **The price to beat was ~$1500.** Looking at the component list for the proposed final design:
@@ -171,11 +175,16 @@ Looking at the plot of the prototype test (Figure 9.), we can see a few importan
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Discussion & Future Improvements
 
 
 
-**Discussion:**These results demonstrate that the prototype can detect temperature changes at different depths during liquid-argon exposure. The lower sensors reached a stable reading while the upper sensors remained above the liquid, and the upper sensors subsequently reached a similar stable reading after submersion. This establishes the prototype's basic ability to monitor temperature at multiple depths. Further testing in the full-size cryochamber, particularly with detector equipment installed, would be necessary to validate its ability to monitor vertical thermal gradients under operational conditions.
+**Discussion:** 
+These results demonstrate that the prototype can detect temperature changes at different depths during liquid-argon exposure. 
+- The lower sensors reached a stable reading while the upper sensors remained above the liquid, and the upper sensors subsequently reached a similar stable reading after submersion.
+- This establishes the prototype's basic ability to monitor temperature at multiple depths.
+- Further testing in the full-size cryochamber, particularly with detector equipment installed, would be necessary to validate its ability to monitor vertical thermal gradients under operational conditions.
 
 **Problems with Current Prototype:**
 - **Conductor Pair Shielding:** The conductor pair shielding was chosen to be left on the wires over the section where the cable's main jacket was removed. While the cable was specifically chosen to withstand liquid argon temperatures, exposure to extreme temperatures appeared to make the metal shielding slightly brittle (see Figure 10.), and over time it possible bits of this shielding will break off.
