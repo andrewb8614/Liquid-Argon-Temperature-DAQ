@@ -28,10 +28,13 @@ Liquid argon particle detectors used in neutrino research are highly vulnerable 
 ## 3. Design Considerations & Limitations
 
 Design Considerations:
+- The price to beat is about $1500, which would be the cost of buying a similar unit fully made.
 
 
 Limitations:
-- **Within the current design, the accuracy of our measurements cannot be measured.** That said, within the constraints of the project objectives, it the precision which matters most, as it is not the absolute temperature of the chamber which we are focusing on but the temperature gradient.
+- **The absolute accuracy of the measurements has not yet been independently verified through calibration** (such as the use of a reference thermometer). Currently, the rig uses the FDQ-30002's native fault-checking functions to flag for faults which could give some insight to when a measurement is completely awry, but not whether a measurement is accurate.
+- However, **the primary objective of this prototype is to monitor relative temperature differences between sensor depths. Consequently, sensor-to-sensor consistency and repeatability are the most important parameters**. If the collected data should ever be used for more than a relative temperature gradient, this will need to be addressed, but **within the constraints of the current objectives, we do not need to emphasize measurement accuracy in our design.**
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 4. Hardware Design and Construction
 
@@ -152,9 +155,27 @@ Looking at the plot of the prototype test (Figure 9.), we can see a few importan
 <br>
 <br>
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 6. Cost Analysis
+
+**Cost Effective** **The price to beat was ~$1500.** Looking at the component list for the proposed final design:
+- DAQ Board: ~120 dollars
+- 4 Shields (for 16 additional channels to get to 20 channels total): 4x$80 = $320
+- DAQ & Shield Housing: ~$75
+- Stackable Header Pins for Shields: ~$15
+- 20 RTDs: ~$90.
+- 10 Mount PCBs: ~$5.
+- Cable: Since each cable only supports 4 channels, we'd need 5 cables for the final build, which at 6-ft would amount to ~$240
+- Solder: ~$10
+**Estimated Total: ~$875, meaning an approximately 42% estimated reduction in cost compared to a store-bought temp-sensing rig.**
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Considerations for Future Iterations
+## Discussion & Future Improvements
+
+
+
+**Discussion:**These results demonstrate that the prototype can detect temperature changes at different depths during liquid-argon exposure. The lower sensors reached a stable reading while the upper sensors remained above the liquid, and the upper sensors subsequently reached a similar stable reading after submersion. This establishes the prototype's basic ability to monitor temperature at multiple depths. Further testing in the full-size cryochamber, particularly with detector equipment installed, would be necessary to validate its ability to monitor vertical thermal gradients under operational conditions.
 
 **Problems with Current Prototype:**
 - **Conductor Pair Shielding:** The conductor pair shielding was chosen to be left on the wires over the section where the cable's main jacket was removed. While the cable was specifically chosen to withstand liquid argon temperatures, exposure to extreme temperatures appeared to make the metal shielding slightly brittle (see Figure 10.), and over time it possible bits of this shielding will break off.
@@ -164,9 +185,7 @@ Looking at the plot of the prototype test (Figure 9.), we can see a few importan
 - **Conductor Pair Shielding:** Specialized insulation may be shrunk over the individual shielded conductor pairs to protect the shielding. Alternatively, the shielding may be cut off entirely at the point where the jacket is stripped, although consequences on potential resulting interference will need to be considered.
 - **RTD Channel Rewiring/Renaming:** Channels should be rewired so RTDs at parallel depths are numerically next to each other (e.g. RTD0 and RTD1 should be at same depth). Alternatively, these channels can be renamed in the script, although for wiring purposes it will be more intuitive if the RTD channels are wired physically next to each other, so rewiring is likely the better choice.
 
-
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
  ## Conclusion & Lessons Learned
 
@@ -181,6 +200,7 @@ The prototype type test was highly successful. It revealed much about what works
 
 **Lessons Learned:**
 - **Documentation:** Documentation is a quintessential skill as an engineer, as it allows for greater analysis of results, leads to more thorough consideration of design and iteration, and serves as the fundamental form of book-keeping to track projects organic projects which evolve through time. **This project marks a great step-up in my own documentation skill, as I routinely took pictures, uploaded rough drafts of my scripts to Github, and wrote down accompying notes for these things. I also wrote down my design ideas, thought processes, project goals, and questions for the physicists I was designing the unit for and notes about what they told me.** **However, there was plenty I still missed. For instance, no pictures exist of the "No SD detected" flag or fault detection demonstrations discussed earlier (see sec. 4 "Scripting").**
-- **Thinking Ahead:**
--
--   uploaded rough drafts of my scripts to Github, and wrote accompying  of  although there is still substantial room for growth, as several 
+- **Quantitative Measurement:** Upon reflection, a stronger emphasis on quantitative measurement needs to be deployed on future projects. For instance, when it was observed that varying the angle of the rig by only a few degrees resulted in a deviation of temperature of RTDs mounted to the same depth on the rig on the order of 3-5°C, I should have done more than just note this observation but used a protractor to measure the phenomena explicitly.
+- **Thinking Ahead:** Certain things cannot be reasonably predicted without testing. With hindsight, it is easy to see the mistakes, such as not performing quantitative testing for DAQ rig's response to deviations in angle from perfect vertical alignment, but nothing reveals these mistakes as quickly and blatantly as testing or simulation. **However, with each project, predicting what's most likely going to be a point of failure or be overlooked beforehand becomes even easier.**
+-**Communication and Design Constraints:** Communication with the physicists who asked me to build the sensor was of utmost importance. They laid the groundwork for the essential design constraints and considerations. Without frequent communication, a project is at risk of over or under-engineering, going out of budget, or just plain not capable of achieving its fundamental requirements.
+
