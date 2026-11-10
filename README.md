@@ -2,21 +2,21 @@
 
 # Overview
 
-## Built and tested a multi-channel RTD temperature monitoring system designed to measure vertical thermal gradients within a liquid argon cryochamber.
+## Designed, assembled, and tested a cryogenic temperature DAQ unit capable of submersion in liquid argon (~-186°C) to prevent thermal shock gradient from catastrophically damaging neutrino detection equipment.
 
 ### **Project Highlights**
 
-- Designed and assembled a RTD sensor array capable of submersion in liquid argon (~-186°C).
-
+- Built an RTD Array to measures thermal gradient of liquid argon chamber
+  
 - Integrated a Playing With Fusion FDQ-30002 data acquisition board.
 
 - Implemented real-time temperature monitoring and CSV data logging.
 
-- Tested sensor response and temperature gradients in liquid argon.
+- Tested sensor response to changes in depth in liquid argon.
 
 - Evaluated sensor alignment, measurement consistency, and system limitations through experimental testing.
 
-### **Technologies Used + Skills: Arduino, C++, Python, DAQ Control Scripting, RTD Sensors, Data Acquisition, CSV Logging, Plotting, Hardware Construction (Soldering, Wiring), Experimental Testing, Data Analysis**
+### **Technologies Used + Skills: Arduino, C++, Python, DAQ Control Scripting, Hardware Construction (Soldering, Wiring), Data Acquisition, Experimental Testing, Plotting, Data Analysis, CSV Logging, RTD Sensors**
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
