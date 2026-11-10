@@ -18,6 +18,9 @@
 
 ### **Technologies Used + Skills: Arduino, C++, Python, DAQ Control Scripting, Hardware Construction (Soldering, Wiring), Data Acquisition, Experimental Testing, Plotting, Data Analysis, CSV Logging, RTD Sensors**
 
+[▶ Click Here to Watch a Short Liquid Argon DAQ Test Demonstration (After Clicking Link, Click "View Raw" to Download MP4)](./DAQ_Test_Demonstration_Video.mp4)
+
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 <br>
@@ -132,7 +135,6 @@ Test Objectives:
 I started by placing the lowest sensor an inch above the liquid. I observed the output monitor and waited for the temperature at each depth to stop changing. The unit was then submerged at different depths relative to the start position. Each time the unit was moved, the time of movement was noted and the depth it was moved by was measured and recorded. This procedure was done repeatedly at various depths. The purpose of this is to not only test the success of the DAQ unit prototype, but to also log data about how quickly the RTDs respond to changes in depth. 
 <br>
 <br>
-[▶ Click Here to Watch the Liquid Argon DAQ Test Demonstration (After Clicking Link, Click "View Raw" to Download MP4)](./DAQ_Test_Demonstration_Video.mp4)
 <br>
 <br>
 <br>
