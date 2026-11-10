@@ -139,18 +139,21 @@ The live readout (a sample of which is shown in Figure 8.) worked as expected. W
 Looking at the plot of the prototype test (Figure 9.): 
 - Plotting starts at room temperature and ends at roughly room temperature.
 - Temperature change upon movement of the rig appears exponential
-- The floor temperature of the liquid argon was ~-190°C. 
+- The floor temperature of the liquid argon was ~-190°C.
+- At ~1000s, the lower RTDs were fully submerged while the uppers remained outside the liquid.
+- At ~1300s, the full unit was submerged, though the lower RTDs did not change in temperature, indicating the two depths we're approximately at equilibrium.
 
 <br>
 <br>
 <br>
 
-**Drastic Variation in Temperature with Angle:** 
+**Observed Variation in Temperature with Angle:** 
 As mentioned in the Hardware and Test Setup section, two RTDs were mounted to each PCB, meaning they would be at approximately the same depth. By doing this, it was believed I could check for faults by initiating a flag whenever the temperature difference at the same depth was too great. 
 - **As was discovered upon the initial test, however, the sensors are more sensitive to depth than initially thought, as the temperature differential of liquid argon can be rather large at comparably small differences in depth.**
 - For instance, **tilting the unit only a few degrees at the head such that the two sensors were at a depth difference of only a few millimeters was observed to result in differences in temperature on the order of 3-5 degrees Celsius.**
+- This observance was not pursued qualitatively, which was a mistake in retrospect (discussed more in sec "Discussion & Future Improvements").
 
-This means the data will need to be handled carefully to be accurately interpreted, and a means of ensuring the unit is aligned vertically may need to be considered in the next iterations. 
+**This means a method of ensuring the unit is aligned vertically may need to be considered in the next iterations**. 
 
 >FIG 10: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extreme Temperature Exposure
 <img width="571" height="981" alt="image" src="https://github.com/user-attachments/assets/a2815d9a-b08e-4c80-99e4-a69ef96f6140" />
@@ -176,7 +179,7 @@ This means the data will need to be handled carefully to be accurately interpret
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Discussion & Future Improvements
+## 7. Discussion & Future Improvements
 
 
 
