@@ -132,6 +132,10 @@ The Playing with Fusion FDQ-30002 RTD Data Acquisition board (Figure 2.) was cho
 
 
  ## 5. Testing & Results
+
+>Fig 8. Temp Sensing Rig Mounted in Cryochamber with Liquid Argon
+ <img width="3060" height="4080" alt="IMG_20261028_140202461" src="https://github.com/user-attachments/assets/297cb153-f120-4a15-82ac-b0e39fa09a55" />
+
  
 Test Objectives:
 - Verify hardware 
@@ -141,10 +145,10 @@ I started by placing the lowest sensor an inch above the liquid. I observed the 
 <br>
 <br>
 <br>
-The live readout (a sample of which is shown in Figure 8.) worked as expected. What was not considered was that the limit for the low temperature fault flag would of course need to be adjusted for liquid argon temperatures, so during the course of the test the fault checker read "Low RTD Threshold Met". Additionally, the RTDs were wired such that channels 0 and 2 were at equivalent depths, and 1 and 3 were at equivalent depths, making the readout a little difficult to follow as it was not intuitively obvious that these RTDs were at the same depth from the readout alone.
+The live readout (a sample of which is shown in Figure 9.) worked as expected. What was not considered was that the limit for the low temperature fault flag would of course need to be adjusted for liquid argon temperatures, so during the course of the test the fault checker read "Low RTD Threshold Met". Additionally, the RTDs were wired such that channels 0 and 2 were at equivalent depths, and 1 and 3 were at equivalent depths, making the readout a little difficult to follow as it was not intuitively obvious that these RTDs were at the same depth from the readout alone.
 
 
->FIG 8: Live Readout Snippet
+>FIG 9: Live Readout Snippet
 <img width="487" height="535" alt="image" src="https://github.com/user-attachments/assets/01bb129f-3dcd-423c-a62f-7a0476d190e4" />
 <br>
 <br>
@@ -152,9 +156,9 @@ The live readout (a sample of which is shown in Figure 8.) worked as expected. W
 <br>
 <br>
 <br>
->FIG 9: Plot of First Test of Temperature DAQ in Liquid Argon. 
+>FIG 10: Plot of First Test of Temperature DAQ in Liquid Argon. 
 <img width="3000" height="1800" alt="temperature_plot" src="https://github.com/user-attachments/assets/d6667f38-c2e4-49e1-830a-8960e582a503" />
-Looking at the plot of the prototype test (Figure 9.): 
+Looking at the plot of the prototype test (Figure 10.): 
 - Plotting starts at room temperature and ends at roughly room temperature.
 - Temperature change upon movement of the rig appears exponential
 - The floor temperature of the liquid argon was ~-190°C.
@@ -173,7 +177,7 @@ As mentioned in the Hardware and Test Setup section, two RTDs were mounted to ea
 
 **This means a method of ensuring the unit is aligned vertically may need to be considered in the next iterations**. 
 
->FIG 10: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extreme Temperature Exposure
+>FIG 11: Up-Close Shot of Sensor Array Showing the Accumulated Frost from the Extreme Temperature Exposure
 <img width="571" height="981" alt="image" src="https://github.com/user-attachments/assets/a2815d9a-b08e-4c80-99e4-a69ef96f6140" />
 <br>
 <br>
