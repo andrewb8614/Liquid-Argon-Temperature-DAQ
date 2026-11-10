@@ -6,9 +6,11 @@
 
 ### **Project Highlights**
 
-- Built an RTD Array to measure thermal gradient of liquid argon chamber
+- Built an RTD Array to measure thermal gradient of liquid argon chamber.
+
+- Achieved a projected 42% cost reduction ($875 vs. $1,500 for commercial off-the-shelf alternatives).
   
-- Integrated a Playing With Fusion FDQ-30002 data acquisition board.
+- Integrated Arduino, C++, and Python for data collection and analysis.
 
 - Implemented real-time temperature monitoring and CSV data logging.
 
@@ -267,7 +269,7 @@ For instance:
 This project successfully demonstrated that a high-stakes engineering challenge can be met with an affordable, custom-built hardware and telemetry solution.
 - **High-Stakes Problem Solving:** Designed and built a cryogenic DAQ system to prevent catastrophic 20°C thermal shock in sensitive neutrino detector equipment. 
 - **Cryogenic Reliability:** Demonstrated sub-zero functionality under direct submersion in liquid argon (~-186°C).
-- **Significant Cost Efficiency:** Achieved a projected 42% cost reduction ($875 vs. $1,500 commercial off-the-shelf alternatives) while expanding multi-channel capabilities.
+- **Significant Cost Efficiency:** Achieved a projected 42% cost reduction ($875 vs. $1,500 for commercial off-the-shelf alternatives).
 - **Data-Driven Engineering:** Integrated real-time multi-channel logging (Arduino/Python) to observe live thermal equilibration and depth-dependent gradient changes.
 - **Iterative & Honest Prototyping:** Identified critical design insights—such as depth sensitivity and tilt variation—laying down a clear roadmap for vertical alignment and full 20-channel expansion.
-Overall, the prototype proved that custom telemetry can deliver reliable, high-precision thermal monitoring while remaining budget-friendly for lab research
+Overall, the prototype proved that custom telemetry can deliver reliable, high-precision thermal monitoring while remaining budget-friendly for lab research.
