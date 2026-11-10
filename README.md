@@ -1,10 +1,10 @@
 # Liquid-Argon-Temperature-DAQ
 
-## 1. Overview
+# 1. Overview
 
-Built and tested a multi-channel RTD temperature monitoring system designed to measure vertical thermal gradients within a liquid argon cryochamber.
+## Built and tested a multi-channel RTD temperature monitoring system designed to measure vertical thermal gradients within a liquid argon cryochamber.
 
-**Project Highlights**
+### **Project Highlights**
 
 - Designed and assembled a RTD sensor array capable of submersion in liquid argon (~-186°C).
 
@@ -16,7 +16,7 @@ Built and tested a multi-channel RTD temperature monitoring system designed to m
 
 - Evaluated sensor alignment, measurement consistency, and system limitations through experimental testing.
 
-- **Technologies + Skills: Arduino, C++, Python, DAQ Control Scripting, RTD Sensors, Data Acquisition, CSV Logging, Plotting, Hardware Construction (Soldering, Wiring), Experimental Testing, Data Analysis**
+### **Technologies Used + Skills: Arduino, C++, Python, DAQ Control Scripting, RTD Sensors, Data Acquisition, CSV Logging, Plotting, Hardware Construction (Soldering, Wiring), Experimental Testing, Data Analysis**
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  ## 2. The Problem
  
