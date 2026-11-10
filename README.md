@@ -1,4 +1,4 @@
-# Liquid-Argon-Temperature-DAQ
+## Liquid-Argon-Temperature-DAQ
 
 # Overview
 
