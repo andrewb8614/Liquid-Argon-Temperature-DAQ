@@ -1,6 +1,6 @@
 # Liquid-Argon-Temperature-DAQ
 
-# 1. Overview
+# Overview
 
 ## Built and tested a multi-channel RTD temperature monitoring system designed to measure vertical thermal gradients within a liquid argon cryochamber.
 
@@ -30,14 +30,15 @@
 <br>
 <br>
 <br>
- ## 2. The Problem
+
+ ## 1. The Problem
  
 Liquid argon particle detectors used in neutrino research are highly vulnerable to thermal shock. For the target 4-ft cryochamber, **a vertical temperature differential exceeding 20°C across the two ends of the detector chassis could cause catastrophic material failure.**
 
 **To mitigate this risk, temperature gradients within the cryochamber must be monitored during the filling process.** The goal of this project was to design, build, and test a temperature Data Acquisition (DAQ) rig capable of mapping vertical temperature gradients in real time. **By measuring temperatures at multiple depths, researchers can monitor thermal equilibration and dynamically adjust chamber fill rates to prevent potentially damaging temperature differentials from developing across sensitive equipment.**
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 3. Design Considerations & Limitations
+## 2. Design Considerations & Limitations
 
 Design Considerations:
 - The price to beat is about $1500, which would be the cost of buying a similar unit fully made.
@@ -48,7 +49,7 @@ Limitations:
 - However, **the primary objective of this prototype is to monitor relative temperature differences between sensor depths. Consequently, sensor-to-sensor consistency and repeatability are the most important parameters**. If the collected data should ever be used for more than a relative temperature gradient, this will need to be addressed, but **within the constraints of the current objectives, we do not need to emphasize measurement accuracy in our design.**
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 4. Hardware Design and Construction
+## 3. Hardware Design and Construction
 
 I soldered two RTDs to a PCB designed to mount to a secure permanent housing rod (Figure 1.). By mounting two RTDs at the same depth, I can catch imprecise measurements when they occur by comparing the temperature of two parallel readings which should be approximately the same. 
  
