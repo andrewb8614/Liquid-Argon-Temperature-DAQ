@@ -17,10 +17,14 @@
 - Evaluated sensor alignment, measurement consistency, and system limitations through experimental testing.
 
 ### **Technologies Used + Skills: Arduino, C++, Python, DAQ Control Scripting, RTD Sensors, Data Acquisition, CSV Logging, Plotting, Hardware Construction (Soldering, Wiring), Experimental Testing, Data Analysis**
-<br>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
