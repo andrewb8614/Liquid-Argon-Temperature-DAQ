@@ -17,7 +17,13 @@
 - Evaluated sensor alignment, measurement consistency, and system limitations through experimental testing.
 
 ### **Technologies Used + Skills: Arduino, C++, Python, DAQ Control Scripting, RTD Sensors, Data Acquisition, CSV Logging, Plotting, Hardware Construction (Soldering, Wiring), Experimental Testing, Data Analysis**
+<br>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<br>
+<br>
+<br>
+<br>
+<br>
  ## 2. The Problem
  
 Liquid argon particle detectors used in neutrino research are highly vulnerable to thermal shock. For the target 4-ft cryochamber, **a vertical temperature differential exceeding 20°C across the two ends of the detector chassis could cause catastrophic material failure.**
